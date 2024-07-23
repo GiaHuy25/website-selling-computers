@@ -1,0 +1,24 @@
+﻿@model List<WebprojectCK.Models.User>
+@{
+    ViewBag.Title = "viewuser";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Tên</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@Html.DisplayFor(model => item.UserName)</td>
+    <td>@Html.DisplayFor(model => item.EmailAddress)</td>
+    <td>@Html.DisplayFor(model => item.Role)</td>
+    <td><button class="btn btn-primary" type="button"><a href="/admin/admin/DeleteUser/@item.UserId" style="color:white">Delete</a></button></td>
+</tr>
+    }
+</table>

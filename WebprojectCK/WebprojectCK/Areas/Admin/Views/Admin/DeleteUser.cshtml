@@ -1,0 +1,34 @@
+﻿@model WebprojectCK.Models.User
+
+@{
+    ViewBag.Title = "DeleteUser";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage.cshtml";
+}
+
+<h2>DeleteUser</h2>
+<form action="/admin/admin/DeleteUser/@Model.UserId" method="post">
+    <input type="hidden" name="UserId" value="@Model.UserId" />
+    <table class="table table-bordered">
+        <tr>
+
+            <th>Tên</th>
+            <th>Email</th>
+            <th>Chức Vụ</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => Model.UserName)</td>
+            <td>@Html.DisplayFor(model => Model.EmailAddress)</td>
+            <td>@Html.DisplayFor(model => Model.Role)</td>
+        </tr>
+    </table>
+    @if (Model.Role != "admin")
+    {
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="/admin/admin/viewuser" class="btn btn-dark">Cancel</a>
+    }
+    else {
+    <h3>Không Được Xóa Admin đâu đồ ngu</h3>
+    <a href="/admin/admin/viewuser" class="btn btn-dark">Cancel</a>
+    }
+
+</form>

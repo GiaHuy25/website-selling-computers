@@ -1,0 +1,27 @@
+﻿@model WebprojectCK.Models.Product
+
+@{
+    ViewBag.Title = "DeleteProduct";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage.cshtml";
+}
+
+<h2>DeleteProduct</h2>
+<form action="/admin/admin/DeleteProduct/@Model.productID" method="post">
+    <input type="hidden" name="ProductId" value="@Model.productID" />
+    <table class="table table-bordered">
+        <tr>
+
+            <th>Tên</th>
+            <th>Ngày Lập</th>
+            <th>Giá</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => Model.productName)</td>
+            <td>@Html.DisplayFor(model => Model.createdate)</td>
+            <td>@Html.DisplayFor(model => Model.price) VNĐ</td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="/admin/admin/viewproduct" class="btn btn-dark">Cancel</a>
+</form>
+

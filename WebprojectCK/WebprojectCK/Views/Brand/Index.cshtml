@@ -1,0 +1,22 @@
+﻿@model List<WebprojectCK.Models.Brands>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+<table class=" table">
+    <tr>
+        <th>BrandID</th>
+        <th>BrandName</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.brandID</th>
+            <th>@item.brandName</th>
+        </tr>
+    }
+
+</table>

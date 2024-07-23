@@ -1,0 +1,111 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="/img/logo.jpg" style="border-radius: 5px " />
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-blue bg-blue" style="background-color: #0d6efd">
+            <div class="container-fluid">
+                <div style="width:200px">
+                    <a class="navbar-brand" href="/home/index"><img style="width:40px; heigh:40px;border-radius:5px " src="/img/logo.jpg" /><b>  HPStore  </b></a>
+                </div>
+                <div style="width:900px" class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex" style="margin-left:auto;margin-right:auto" action="/Product/index">
+                        <input class="form-control me-2" type="search" placeholder="Tìm Kiếm" name="search" aria-label="search" style="width:500px; ">
+                        <button class="btn btn-outline-success" type="submit" style="background-color:azure; color:black">Tìm</button>
+                    </form>
+                </div>
+                <div style="width:100px">
+                    <a href="/Cart/index"><i class="fa-solid fa-cart-shopping fa-2xl" style="color: #eff1f6; margin-right:5px"></i></a>
+                </div>
+                <div style="width:200px" class="d-grid gap-2 d-md-block mgl-2">
+                    <a href="/user/login" style="text-decoration:none"><button class="btn btn-primary" type="button" style=" background-color:azure; color:black">Đăng Nhập</button></a>
+                    <a href="/user/Register" style="text-decoration:none"><button class="btn btn-primary" type="button" style="background-color:azure; color:black">Đăng Kí</button></a>
+                </div>
+            </div>
+        </nav>
+        <div style="width: 100%; background-color: #0d6efd">
+            <ul style="display:flex;list-style:none;justify-content:center;align-items:center;">
+                <li style="padding:0px 0px 0px 0px;width:10%" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: azure; color: black">
+                        Laptop
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/home/searchcategory?categoryid=1&page=1">Tất Cả</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=1">Laptop Acer</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=2">Laptop Asus</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=3">Laptop Lenovo</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=4">Laptop MSI</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=5">Laptop HP</a>
+                    </div>
+                </li>
+                <li style="padding:0px 0px 0px 0px;width:10%" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: azure; color: black">
+                        PC
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/home/searchcategory?categoryid=2&page=1">Tất Cả</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=7">PC Gaming</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=8">PC Văn Phòng</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=9">PC Đồ Họa</a>
+                    </div>
+                </li>
+                <li style="padding:0px 0px 0px 0px;width:10%" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: azure; color: black">
+                        Màn hình
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/home/searchcategory?categoryid=3&page=1">Tất Cả</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=10">Màn Hình Acer</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=11">Màn Hình Asus</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=12">Màn Hình MSI</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=13">Màn Hình Samsung</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=14">Màn Hình Philips</a>
+                    </div>
+                </li>
+                <li style="padding:0px 0px 0px 0px;width:10%" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: azure; color: black">
+                        Tai nghe
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/home/searchcategory?categoryid=6&page=1">Tất Cả</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=21">Tai Nghe Asus</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=22">Tai Nghe Logitech</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=23">Tai Nghe Razer</a>
+                    </div>
+                </li>
+                <li style="padding:0px 0px 0px 0px;width:10%" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: azure; color: black">
+                        Chuột
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/home/searchcategory?categoryid=5&page=1">Tất Cả</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=18">Chuột Asus</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=19">Chuột Logitech</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=20">Chuột Razer</a>
+                    </div>
+                </li>
+                <li style="padding:0px 0px 0px 0px;width:10%" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: azure; color: black">
+                        Bàn phím
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/home/searchcategory?categoryid=4&page=1">Tất Cả</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=15">Bàn Phím Asus</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=16">Bàn Phím Logitech</a>
+                        <a class="dropdown-item" href="/home/searchbrand?brandid=17">Bàn Phím Razer</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        @RenderBody()
+    </div>
+</body>
+</html>

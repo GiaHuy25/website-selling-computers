@@ -1,0 +1,94 @@
+﻿@model List<WebprojectCK.Models.Product>
+@{
+    ViewBag.Title = "searchcategory";
+    Layout = "~/Views/Share/_LayoutPage1.cshtml";
+    var userName = Context.Request.Cookies["auth"];
+    var Role = Context.Request.Cookies["role"];
+    var iduser = Context.Request.Cookies["id"];
+}
+<h3>
+    Hello
+    @if (userName != null)
+    {
+        <span>@userName.Value </span>
+        <button class="btn btn-primary" type="button"><a href="/User/Logout" style="color:white">Logout</a></button>
+        if (Role.Value == "admin")
+        {
+            <button class="btn btn-primary" type="button" style="color:white"><a href="/admin/admin/index" style="color:white">Admin Page</a></button>
+        }
+    }
+    else
+    {
+        <span>Guess</span>
+    }
+</h3>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3 mb-3">
+            <div class="card shadow" style="width: 18rem;">
+                <div class="inner">
+                    <img src="/img/@item.img" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                    <h6>@item.productName</h6>
+                    <p class="card-text" style="color:red; font-size:18px; font-weight:700">@Html.DisplayFor(row => item.price) VNĐ</p>
+                    <div style="width:50px ">
+                        <a href="/Cart/AddCart/@item.productID"><i class="fa-solid fa-cart-shopping fa-2xl" style="color: red; align-content: center"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<table style="margin:auto">
+    <tr>
+        <td colspan="3">
+            @{
+                int truoc = ViewBag.Page - 1;
+                if (truoc <= 0)
+                {
+                    truoc = 1;
+                }
+                int sau = ViewBag.Page + 1;
+                if (sau > ViewBag.Noofpage)
+                {
+                    sau = ViewBag.Noofpage;
+                }
+            }
+            <ul class="pagination justify-content-center">
+                <li class="page-item active">
+                    <a class="page-link" href="/home/searchcategory?categoryid=@ViewBag.categoryid&page=@truoc">
+                        Trước
+                    </a>
+                </li>
+                @for (int i = 0; i < ViewBag.Noofpage; i++)
+                {
+                    if (i + 1 == ViewBag.Page)
+                    {
+                        <li class="page-item active">
+                            <a class="page-link" href="/home/searchcategory?categoryid=@ViewBag.categoryid&page=@(i+1)">
+                                @(i+1)
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/home/searchcategory?categoryid=@ViewBag.categoryid&page=@(i+1)">
+                                @(i+1)
+                            </a>
+                        </li>
+                    }
+                }
+                <li class="page-item active">
+                    <a class="page-link" href="/home/searchcategory?categoryid=@ViewBag.categoryid&page=@sau">
+                        Sau
+                    </a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+
+</table>
+

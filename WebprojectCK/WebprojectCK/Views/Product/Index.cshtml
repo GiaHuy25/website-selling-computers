@@ -1,0 +1,52 @@
+﻿@model List<WebprojectCK.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_LayoutPage1.cshtml";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3 mb-3">
+            <div class="card shadow" style="width: 18rem;">
+                <div class="inner">
+                    <img src="/img/@item.img" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                    <h6>@item.productName</h6>
+                    <p class="card-text" style="color:red; font-size:18px; font-weight:700">@Html.DisplayFor(row => item.price) VNĐ</p>
+                    <div style="width:50px ">
+                        <a href="/Cart/AddCart/@item.productID"><i class="fa-solid fa-cart-shopping fa-2xl" style="color: red; align-content: center"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<table style="margin:auto">
+    <tr>
+        <td colspan="3">
+            <ul class="pagination justify-content-center">
+                @for (int i = 0; i < ViewBag.Noofpage1; i++)
+                {
+                    if (i + 1 == ViewBag.Page1)
+                    {
+                        <li class="page-item active">
+                            <a class="page-link" href="/Product/index?search=@ViewBag.search&page=@(i+1)">
+                                @(i+1)
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/Product/index?search=@ViewBag.search&page=@(i+1)">
+                                @(i+1)
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </td>
+    </tr>
+</table>

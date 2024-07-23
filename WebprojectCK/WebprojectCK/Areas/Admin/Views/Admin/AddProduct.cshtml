@@ -1,0 +1,65 @@
+﻿@model WebprojectCK.Models.Product
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage.cshtml";
+}
+<h2>AddProduct</h2>
+@using (Html.BeginForm("AddProduct", "Admin", new { Area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            @Html.LabelFor(model => model.productName, "Tên sản phẩm")
+            @Html.TextBoxFor(model => model.productName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.productName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            @Html.LabelFor(model => model.createdate, "Ngày phát hành")
+            @Html.TextBoxFor(model => model.createdate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.createdate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            @Html.LabelFor(model => model.brandID, "Thương Hiệu")
+            @Html.DropDownListFor(model => model.brandID, new SelectList(ViewBag.Brand, "brandID", "brandName", "categoryID"), "Chọn Thương Hiệu", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.brandID,"", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            @Html.LabelFor(model => model.categoryID, "Loại sản phẩm")
+            @Html.DropDownListFor(model => model.categoryID, new SelectList(ViewBag.Category, "categoryID", "categoryName"), "Loại sản phẩm", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.categoryID,"", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            @Html.LabelFor(model => model.price, "Giá sản phẩm")
+            @Html.TextBoxFor(model => model.price, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            @Html.LabelFor(model => model.img, "Chọn hình")
+            <input type="file" name="imageFile" id="imageFile" class="form-control" />
+            @Html.ValidationMessageFor(model => model.img, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            <button type="submit" class="btn btn-primary">Thêm SP</button>
+        </div>
+    </div>
+}
+
+

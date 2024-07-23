@@ -1,0 +1,63 @@
+﻿@model List<WebprojectCK.Models.Cart>
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Views/Share/_LayoutPage1.cshtml";
+    var userName = Context.Request.Cookies["auth"];
+    var Role = Context.Request.Cookies["role"];
+}
+<h2>@ViewBag.Title</h2>
+@if (userName != null)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>Số Thứ Tự</th>
+            <th>Tên</th>
+            <th>Số Lượng</th>
+            <th>Tiền</th>
+        </tr>
+        @{
+            int i = 1;
+            int totalprice = 0;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@Html.DisplayFor(model => item.Product.productName)</td>
+                <td>
+                    @using (Html.BeginForm("UpdateQuatity", "Cart", FormMethod.Get))
+                    {
+                        <input type="number" value="@item.Quantity" name="quan" min="1" style="width:60px" />
+                        <input type="hidden" name="proid" value="@item.productID" />
+                        <input type="submit" value="Cập Nhật" class="btn btn-danger" />
+                        <button class="btn btn-primary" type="button"><a href="/cart/delete?id=@item.productID" style="color:white">Delete</a></button>
+                    }
+
+                </td>
+                <td>
+                    @{
+                        int price = Convert.ToInt32(item.Product.price) * item.Quantity;
+                        totalprice = totalprice + price;
+                        i++;
+                    }
+                    @price.ToString("N0") VNĐ
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="3" class="text-center">Tổng Tiền</td>
+            <td>@totalprice.ToString("N0") VNĐ</td>
+        </tr>
+    </table>
+
+}
+else
+{
+    <div class="d-flex justify-content-center">
+        <span>Vui Lòng Đăng Nhập Để Xem Giỏ Hàng </span>
+        <div style="width:200px" class="d-grid gap-2 d-md-block mgl-2">
+            <a href="/user/login" style="text-decoration:none"><button class="btn btn-primary" type="button" style=" background-color:azure; color:black">Đăng Nhập</button></a>
+            <a href="/user/Register" style="text-decoration:none"><button class="btn btn-primary" type="button" style="background-color:azure; color:black">Đăng Kí</button></a>
+        </div>
+    </div>
+}

@@ -1,0 +1,19 @@
+﻿@model List<WebprojectCK.Models.Category>
+@{
+    ViewBag.Title = "viewcategory";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Tên Loại Sản Phẩm</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><a href="/admin/admin/searchcate?categoryID=@item.categoryID">@Html.DisplayFor(model => item.categoryName)</a></td>
+        </tr>
+    }
+</table>
+
